@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dhrithi B | Portfolio</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:linear-gradient(135deg,#c3ecff,#d5c8ff,#ffe5ec);
+    color:#333;
+    line-height:1.6;
+}
+
+/* Navbar */
+nav{
+    background:#0f172a;
+    color:white;
+    padding:15px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    color:#38bdf8;
+    font-size:28px;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    gap:20px;
+    list-style:none;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#38bdf8;
+}
+
+.nav-buttons{
+    display:flex;
+    gap:10px;
+}
+
+.nav-btn{
+    padding:10px 18px;
+    border:none;
+    border-radius:20px;
+    background:#38bdf8;
+    color:white;
+    cursor:pointer;
+}
+
+.nav-btn:hover{
+    background:#0284c7;
+}
+
+/* Hero */
+.hero{
+    height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    background:linear-gradient(135deg,#0f172a,#1e3a8a);
+}
+
+.hero h1{
+    font-size:60px;
+}
+
+.hero span{
+    color:#38bdf8;
+}
+
+.hero p{
+    margin:20px 0;
+    font-size:20px;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 25px;
+    background:#38bdf8;
+    color:white;
+    text-decoration:none;
+    border-radius:25px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#0284c7;
+    transform:translateY(-3px);
+}
+
+/* Sections */
+section{
+    padding:80px 10%;
+}
+
+.title{
+    text-align:center;
+    font-size:36px;
+    color:#0f172a;
+    margin-bottom:40px;
+}
+
+/* Cards */
+.skills-container,
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.skill,
+.project-card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.skill{
+    text-align:center;
+    font-weight:bold;
+}
+
+.skill:hover,
+.project-card:hover{
+    transform:translateY(-5px);
+}
+
+.project-card h3{
+    color:#1e3a8a;
+    margin-bottom:10px;
+}
+
+.about{
+    text-align:center;
+    max-width:900px;
+    margin:auto;
+    font-size:18px;
+}
+
+/* Contact */
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    margin:10px 0;
+    font-size:18px;
+}
+
+/* Footer */
+footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* Login/Register Modal */
+.modal{
+    display:none;
+    position:fixed;
+    z-index:2000;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+}
+
+.modal-content{
+    background:white;
+    width:400px;
+    max-width:90%;
+    margin:8% auto;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.modal-content input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+.login-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#1e3a8a;
+    color:white;
+    cursor:pointer;
+}
+
+.google-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#db4437;
+    color:white;
+    margin-top:10px;
+    cursor:pointer;
+}
+
+.close{
+    float:right;
+    font-size:24px;
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+
+<nav>
+
+<div class="logo">Dhrithi B</div>
+
+<ul>
+<li><a href="about.html">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#internship">Internship</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#courses">Courses</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+<div class="nav-buttons">
+<button class="nav-btn" onclick="openLogin()">Login</button>
+<button class="nav-btn" onclick="openRegister()">Register</button>
+</div>
+
+</nav>
+
+<!-- Hero -->
+
+<section class="hero">
+
+<div>
+
+<h1>Hello, I'm <span>Dhrithi B</span></h1>
+
+<p>
+Information Science Student |
+Software Developer |
+AI & ML Enthusiast
+</p>
+
+<a href="#contact" class="btn">Contact Me</a>
+
+</div>
+
+</section>
+
+<!-- About -->
+
+<section>
+
+<h2 class="title">About Me</h2>
+
+<div class="about">
+
+<p>
+I am an Information Science and Engineering student at NMAM Institute of Technology,
+passionate about Software Development, Artificial Intelligence, Machine Learning,
+Data Science, and Cyber Security. I enjoy building real-world applications,
+solving challenging problems, and continuously learning emerging technologies.
+My experience includes Data Science internships and projects involving Machine Learning,
+Computer Vision, Image Processing, and Network Security.
+</p>
+
+</div>
+
+</section>
+
+<!-- Skills -->
+
+<section id="skills">
+
+<h2 class="title">Technical Skills</h2>
+
+<div class="skills-container">
+
+<div class="skill">Python</div>
+<div class="skill">Java</div>
+<div class="skill">MySQL</div>
+<div class="skill">C Programming</div>
+<div class="skill">Machine Learning</div>
+<div class="skill">Data Analysis</div>
+<div class="skill">Pandas</div>
+<div class="skill">NumPy</div>
+<div class="skill">Image Processing</div>
+<div class="skill">HTML</div>
+<div class="skill">CSS</div>
+<div class="skill">JavaScript</div>
+
+</div>
+
+</section>
+
+<!-- Internship -->
+
+<section id="internship">
+
+<h2 class="title">Internship Experience</h2>
+
+<div class="project-card">
+
+<h3>Data Science Internship</h3>
+
+<p>
+Conducted a comprehensive salary analysis of Data Science jobs in India.
+Identified salary trends, skill-based variations, and industry-wise
+compensation patterns using data analytics techniques.
+</p>
+
+</div>
+
+</section>
+
+<!-- Projects -->
+
+<section id="projects">
+
+<h2 class="title">Projects</h2>
+
+<div class="projects">
+
+<div class="project-card">
+<h3>Library Management System</h3>
+<p>Developed a system for managing book issuance, returns, inventory and authentication.</p>
+</div>
+
+<div class="project-card">
+<h3>House Price Prediction</h3>
+<p>Built a Machine Learning model using Linear Regression and Random Forest algorithms.</p>
+</div>
+
+<div class="project-card">
+<h3>AI Generated Image Detection</h3>
+<p>Developed an AI model to detect AI-generated and manipulated images.</p>
+</div>
+
+<div class="project-card">
+<h3>Region Growing Segmentation</h3>
+<p>Implemented image segmentation and feature-based object classification.</p>
+</div>
+
+<div class="project-card">
+<h3>Wireless Network Security Analyzer</h3>
+<p>Developed a WLAN diagnostic tool to identify vulnerabilities and security risks.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- Courses -->
+
+<section id="courses">
+
+<h2 class="title">Relevant Courses & Certifications</h2>
+
+<div class="skills-container">
+
+<div class="skill">TypeScript Programming for Web Development</div>
+<div class="skill">Introduction to Data Science</div>
+<div class="skill">Introduction to NLP</div>
+<div class="skill">Software Engineering Fundamentals</div>
+<div class="skill">Software Design & Development</div>
+<div class="skill">Database Management System</div>
+<div class="skill">Applied AI Learning Challenge</div>
+<div class="skill">Microsoft AI Learning Challenge</div>
+<div class="skill">Microsoft Azure Learning Challenge</div>
+
+</div>
+
+</section>
+
+<!-- Contact -->
+
+<section id="contact">
+
+<h2 class="title">Contact Me</h2>
+
+<div class="contact">
+
+<p>📧 Email: dhrithib11@gmail.com</p>
+<p>📱 Phone: +91 8073536550</p>
+<p>🔗 LinkedIn: www.linkedin.com/in/dhrithi-b-238608288</p>
+<p>💻 GitHub: github.com/DhrithiB</p>
+<p>📍 Mangalore, Karnataka</p>
+
+</div>
+
+</section>
+
+<!-- Footer -->
+
+<footer>
+
+<p>© 2026 Dhrithi B | All Rights Reserved</p>
+
+</footer>
+
+<!-- Login Modal -->
+
+<div id="loginModal" class="modal">
+
+<div class="modal-content">
+
+<span class="close" onclick="closeLogin()">&times;</span>
+
+<h2>Sign In</h2>
+
+<input type="email" placeholder="Email Address">
+
+<input type="password" placeholder="Password">
+
+<button class="login-btn">Continue with Email</button>
+
+<hr style="margin:20px 0;">
+
+<button class="google-btn">
+Continue with Google
+</button>
+
+</div>
+
+</div>
+
+<!-- Register Modal -->
+
+<div id="registerModal" class="modal">
+
+<div class="modal-content">
+
+<span class="close" onclick="closeRegister()">&times;</span>
+
+<h2>Create Account</h2>
+
+<input type="text" placeholder="Full Name">
+
+<input type="email" placeholder="Email Address">
+
+<input type="password" placeholder="Create Password">
+
+<button class="login-btn">
+Register
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+function openLogin(){
+document.getElementById("loginModal").style.display="block";
+}
+
+function closeLogin(){
+document.getElementById("loginModal").style.display="none";
+}
+
+function openRegister(){
+document.getElementById("registerModal").style.display="block";
+}
+
+function closeRegister(){
+document.getElementById("registerModal").style.display="none";
+}
+
+window.onclick = function(event){
+
+if(event.target == document.getElementById("loginModal")){
+closeLogin();
+}
+
+if(event.target == document.getElementById("registerModal")){
+closeRegister();
+}
+
+}
+
+</script>
+
+</body>
+</html>
