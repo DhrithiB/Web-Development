@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Projects | Dhrithi B</title>
+
+    <style>
+
+        body{
+            background:linear-gradient(135deg,#c3ecff,#d5c8ff,#ffe5ec);
+            color:#333;
+        }
+
+        nav{
+            background:#0f172a;
+            padding:15px 50px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        nav h2{
+            color:#38bdf8;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            font-size:18px;
+        }
+
+        .container{
+            width:90%;
+            max-width:1200px;
+            margin:40px auto;
+        }
+
+        .title{
+            text-align:center;
+            font-size:40px;
+            margin-bottom:40px;
+            color:#0f172a;
+        }
+
+        .section-title{
+            color:#1e3a8a;
+            margin-bottom:25px;
+            font-size:30px;
+            text-align:center;
+        }
+
+        .cards{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+            gap:25px;
+        }
+
+        .card{
+            background:white;
+            padding:25px;
+            border-radius:15px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+            transition:0.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-5px);
+        }
+
+        .card h3{
+            color:#1e3a8a;
+            margin-bottom:15px;
+        }
+
+        .card p{
+            line-height:1.7;
+        }
+
+        footer{
+            margin-top:50px;
+            background:#0f172a;
+            color:white;
+            text-align:center;
+            padding:20px;
+        }
+
+        .modal{
+        display:none;
+        position:fixed;
+        z-index:1000;
+        left:0;
+        top:0;
+        width:100%;
+        height:100%;
+        background:rgba(0,0,0,0.7);
+    }
+
+    .modal-content{
+        background:white;
+        margin:8% auto;
+        padding:30px;
+        width:70%;
+        border-radius:15px;
+    }
+
+    .close{
+        float:right;
+        font-size:30px;
+        cursor:pointer;
+    }
+
+    .card{
+        cursor:pointer;
+    }
+
+    </style>
+
+</head>
+
+<body>
+
+    <nav>
+        <h2>Dhrithi B</h2>
+
+        <a href="index.html"> Back to Home</a>
+    </nav>
+
+    <div class="container">
+
+        <h1 class="title">Internship & Projects</h1>
+
+        <!-- Internship Section -->
+
+        <h2 class="section-title">Internship Experience</h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>Data Science Internship</h3>
+
+                <p>
+                    Conducted a comprehensive salary analysis of Data Science
+                    jobs in India. Identified salary trends, skill-based
+                    variations, and industry-wise compensation patterns using
+                    data analytics techniques.
+                </p>
+
+            </div>
+
+        </div>
+
+        <br><br>
+
+        <!-- Projects Section -->
+
+        <h2 class="section-title">Projects</h2>
+
+<div class="card" onclick="openProject('library')">
+    <h3>Library Management System</h3>
+    <p>Click to view details</p>
+</div>
+
+<div class="card" onclick="openProject('house')">
+    <h3>House Price Prediction</h3>
+    <p>Click to view details</p>
+</div>
+
+<div class="card" onclick="openProject('aiimage')">
+    <h3>AI Generated Image Detection</h3>
+    <p>Click to view details</p>
+</div>
+
+<div class="card" onclick="openProject('region')">
+    <h3>Region Growing Segmentation</h3>
+    <p>Click to view details</p>
+</div>
+
+<div class="card" onclick="openProject('security')">
+    <h3>Wireless Network Security Analyzer</h3>
+    <p>Click to view details</p>
+</div>
+
+    <footer>
+        <p>© 2026 Dhrithi B | Portfolio</p>
+    </footer>
+
+<div id="projectModal" class="modal">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="closeProject()">&times;</span>
+
+        <h2 id="projectTitle"></h2>
+
+        <p id="projectDescription"></p>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+function openProject(project){
+
+    let title="";
+    let description="";
+
+    switch(project){
+
+        case "library":
+
+            title="Library Management System";
+
+            description=
+            "A web-based application developed to manage book issuance, returns, inventory tracking, and user authentication. The system improves efficiency by automating library operations and maintaining records in a structured database. Technologies used: Python, MySQL, HTML, CSS.";
+
+            break;
+
+        case "house":
+
+            title="House Price Prediction";
+
+            description=
+            "A machine learning project that predicts house prices based on location, area, number of rooms, and amenities. Data preprocessing, feature engineering, Linear Regression, and Random Forest algorithms were implemented to improve prediction accuracy.";
+
+            break;
+
+        case "aiimage":
+
+            title="AI Generated Image Detection";
+
+            description=
+            "Developed a deep learning model to identify AI-generated and manipulated images. The project focuses on image authenticity analysis and helps distinguish real images from synthetic content using image-processing techniques.";
+
+            break;
+
+        case "region":
+
+            title="Region Growing Segmentation";
+
+            description=
+            "Implemented image segmentation using region-growing algorithms. Extracted features such as area and intensity from segmented objects and applied classification techniques for object recognition and analysis.";
+
+            break;
+
+        case "security":
+
+            title="Wireless Network Security Analyzer";
+
+            description=
+            "A cybersecurity tool designed to analyze WLAN security configurations. It detects access points, evaluates encryption protocols (WEP, WPA2, WPA3), and identifies vulnerabilities such as weak passwords and configuration flaws.";
+
+            break;
+    }
+
+    document.getElementById("projectTitle").innerHTML = title;
+    document.getElementById("projectDescription").innerHTML = description;
+
+    document.getElementById("projectModal").style.display="block";
+}
+
+function closeProject(){
+    document.getElementById("projectModal").style.display="none";
+}
+
+window.onclick=function(event){
+
+    let modal=document.getElementById("projectModal");
+
+    if(event.target==modal){
+        modal.style.display="none";
+    }
+}
+
+</script>
+
+</body>
+</html>

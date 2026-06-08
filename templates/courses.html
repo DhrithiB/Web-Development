@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Courses & Certifications | Dhrithi B</title>
+
+<style>
+
+body{
+    background:linear-gradient(135deg,#c3ecff,#d5c8ff,#ffe5ec);
+    color:#333;
+    font-family:'Segoe UI',sans-serif;
+    margin:0;
+}
+
+nav{
+    background:#0f172a;
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+nav h2{
+    color:#38bdf8;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:40px auto;
+}
+
+.title{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:40px;
+    color:#0f172a;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+    cursor:pointer;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
+    color:#1e3a8a;
+    margin-bottom:10px;
+}
+
+.card p{
+    line-height:1.6;
+}
+
+footer{
+    margin-top:50px;
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* Modal */
+
+.modal{
+    display:none;
+    position:fixed;
+    z-index:1000;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+}
+
+.modal-content{
+    background:white;
+    width:70%;
+    margin:8% auto;
+    padding:30px;
+    border-radius:15px;
+}
+
+.close{
+    float:right;
+    font-size:30px;
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+
+    nav{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .modal-content{
+        width:90%;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h2>Dhrithi B</h2>
+    <a href="index.html">Back to Home</a>
+</nav>
+
+<div class="container">
+
+    <h1 class="title">Courses & Certifications</h1>
+
+    <div class="cards">
+
+        <div class="card" onclick="openCourse('typescript')">
+            <h3>TypeScript Programming</h3>
+            <p>Click to view details</p>
+        </div>
+
+        <div class="card" onclick="openCourse('datascience')">
+            <h3>Introduction to Data Science</h3>
+            <p>Click to view details</p>
+        </div>
+
+        <div class="card" onclick="openCourse('nlp')">
+            <h3>Introduction to Natural Language Processing</h3>
+            <p>Click to view details</p>
+        </div>
+
+        <div class="card" onclick="openCourse('software')">
+            <h3>Software Engineering Fundamentals - Software Development and Testing</h3>
+            <p>Click to view details</p>
+        </div>
+
+        <div class="card" onclick="openCourse('design')">
+            <h3>Software Design & Development: Methodologies</h3>
+            <p>Click to view details</p>
+        </div>
+
+        <div class="card" onclick="openCourse('dbms')">
+            <h3>Database Management System</h3>
+            <p>Click to view details</p>
+        </div>
+
+        <div class="card" onclick="openCourse('ai')">
+            <h3>Microsoft AI Learning Challenge</h3>
+            <p>Click to view details</p>
+        </div>
+
+        <div class="card" onclick="openCourse('azure')">
+            <h3>Microsoft Azure Learning Challenge</h3>
+            <p>Click to view details</p>
+        </div>
+
+         <div class="card" onclick="openCourse('applied')">
+            <h3>Microsoft Applied AI Learning Challenge</h3>
+            <p>Click to view details</p>
+        </div>
+
+         <div class="card" onclick="openCourse('beacons')">
+            <h3>Beacons</h3>
+            <p>Click to view details</p>
+        </div>
+
+         <div class="card" onclick="openCourse('data')">
+            <h3>Webinar: "Data Analysis and Machine Learning"</h3>
+            <p>Click to view details</p>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 Dhrithi B | Portfolio</p>
+</footer>
+
+<!-- Modal -->
+
+<div id="courseModal" class="modal">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="closeCourse()">&times;</span>
+
+        <h2 id="courseTitle"></h2>
+
+        <p id="courseDescription"></p>
+
+    </div>
+
+</div>
+
+<script>
+
+function openCourse(course){
+
+    let title="";
+    let description="";
+
+    switch(course){
+
+        case "typescript":
+            title="TypeScript Programming";
+            description="Learned TypeScript fundamentals including types, interfaces, functions, classes, modules, and web application development.";
+            break;
+
+        case "datascience":
+            title="Introduction to Data Science";
+            description="Covered data collection, cleaning, visualization, statistical analysis, and machine learning fundamentals using Python.";
+            break;
+
+        case "nlp":
+            title="Natural Language Processing";
+            description="Learned text preprocessing, tokenization, sentiment analysis, language models, and NLP applications.";
+            break;
+
+        case "software":
+            title="Software Engineering Fundamentals";
+            description="Studied software development life cycle, requirements analysis, testing, maintenance, and project management.";
+            break;
+
+        case "design":
+            title="Software Design & Development";
+            description="Focused on software architecture, UML diagrams, design patterns, and modern development practices.";
+            break;
+
+        case "dbms":
+            title="Database Management System";
+            description="Learned relational databases, SQL queries, normalization, transactions, and database design principles.";
+            break;
+
+        case "ai":
+            title="Microsoft AI Learning Challenge";
+            description="Completed AI learning modules covering machine learning, generative AI, responsible AI, and AI-powered solutions.";
+            break;
+
+        case "azure":
+            title="Microsoft Azure Learning Challenge";
+            description="Gained knowledge of Azure cloud services, deployment models, security, storage, and cloud computing fundamentals.";
+            break;
+    }
+
+    document.getElementById("courseTitle").innerHTML = title;
+    document.getElementById("courseDescription").innerHTML = description;
+
+    document.getElementById("courseModal").style.display="block";
+}
+
+function closeCourse(){
+    document.getElementById("courseModal").style.display="none";
+}
+
+window.onclick=function(event){
+
+    let modal=document.getElementById("courseModal");
+
+    if(event.target==modal){
+        modal.style.display="none";
+    }
+}
+
+</script>
+
+</body>
+</html>
